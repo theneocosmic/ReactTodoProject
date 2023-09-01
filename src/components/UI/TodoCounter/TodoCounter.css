@@ -1,0 +1,13 @@
+.TodoCounter{
+    font-size:24px;
+    margin:0;
+    padding:48px;
+}
+
+.text-completed{
+    color:#12c2e9;
+}
+
+.text-pending{
+    color:#ec59b4;
+}

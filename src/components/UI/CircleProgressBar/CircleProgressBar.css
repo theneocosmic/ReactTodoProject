@@ -1,0 +1,18 @@
+:root{
+    --color1:#12c2e9;
+}
+
+.circle-background{
+   fill:none;
+   stroke:#ec59b4; 
+}
+
+.circle-progress{
+    fill:none;
+    stroke:var(--color1);
+}
+
+.circle-text{
+    font-size: 2rem;
+    font-weight: bold;
+}

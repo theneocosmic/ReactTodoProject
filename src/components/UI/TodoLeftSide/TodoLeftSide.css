@@ -1,0 +1,10 @@
+.leftside-astronaut{
+    padding-top:30px;
+    width: 50%;
+}
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
