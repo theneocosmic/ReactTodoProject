@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/platzi/ReactTodoProject/build/static/css/main.07292fb6.css",
-    "main.js": "/platzi/ReactTodoProject/build/static/js/main.4be75f7f.js",
-    "index.html": "/platzi/ReactTodoProject/build/index.html",
-    "main.07292fb6.css.map": "/platzi/ReactTodoProject/build/static/css/main.07292fb6.css.map",
-    "main.4be75f7f.js.map": "/platzi/ReactTodoProject/build/static/js/main.4be75f7f.js.map"
+    "main.css": "/ReactTodoProject/static/css/main.07292fb6.css",
+    "main.js": "/ReactTodoProject/static/js/main.4be75f7f.js",
+    "index.html": "/ReactTodoProject/index.html",
+    "main.07292fb6.css.map": "/ReactTodoProject/static/css/main.07292fb6.css.map",
+    "main.4be75f7f.js.map": "/ReactTodoProject/static/js/main.4be75f7f.js.map"
   },
   "entrypoints": [
     "static/css/main.07292fb6.css",
