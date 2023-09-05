@@ -11,5 +11,5 @@ Usando Bootstrap, React, SweetAlert, LottieFiles, ReactHooks, useState, useConte
 <img src="https://github.com/theneocosmic/ReactTodoProject/blob/main/src/assets/screenshot/ReactToDo.gif"/>
 
 
-I hope this helps you in some way 
-Espero te pueda ayudar de alguna manera
+>I hope this helps you in some way 
+>Espero te pueda ayudar de alguna manera
