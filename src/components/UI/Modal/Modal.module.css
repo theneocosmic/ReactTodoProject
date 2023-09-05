@@ -1,0 +1,39 @@
+.modalBackground{
+    background-color:rgba(32,35,41,.8);
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    /* align-items:center; */
+    color:#FFF;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    border:red solid 1px;
+}
+
+.closeModal>a{
+    display: flex;
+    position: fixed;
+    justify-content: end;
+    top:10%;
+    right: 10%;
+    color:#FFF;
+    text-decoration: none;
+}
+
+.closeButton{
+   cursor:pointer;
+}
+
+.closeButton > a:link{
+    font-style: none;
+    color: red, im !important;;
+}
+
+
+
+.closeButton i{
+    font-size: 3em;
+}

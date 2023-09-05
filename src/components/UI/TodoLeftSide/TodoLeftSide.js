@@ -8,7 +8,6 @@ class TodoLeftSide extends React.Component {
     super(props);
     this.player = React.createRef();
   }
-
   render() {
     const doPlay = () => {
       this.player.current.play();
@@ -18,8 +17,6 @@ class TodoLeftSide extends React.Component {
           <div className="row">
             <div className="col-lg-12">
               <TodoCounter
-                data={this.props.dataCounter}
-                totalTasks={this.props.totalTasks}
               />
             </div>
             <div className="col-lg-12 container-img">

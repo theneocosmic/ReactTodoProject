@@ -1,0 +1,11 @@
+.formContainer{
+    width: 50%;
+    margin:auto;
+    background-color: #afa9a9;
+}
+
+.formTitle{
+    color:#000;
+    padding-top:20px;
+    padding-bottom:20px;
+}
