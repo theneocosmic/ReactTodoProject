@@ -1,15 +1,53 @@
 import styles from './TodoForm.module.css';
 import { useForm } from "react-hook-form";
-import React from 'react';
+import React, {useState} from 'react';
 import {TodoContext} from "./../../../context/TodoContext";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+
+import { vestResolver } from '@hookform/resolvers/vest';
+// import { create, test, enforce } from 'vest';
+import { create, test, enforce, only, warn, include, skipWhen } from "vest";
+import classnames from "vest/classnames";
+
 const MySwal = withReactContent(Swal);
 
+
+
+const validationSuite = create((data = {}) => {
+    test('todo', 'TODO is required', () => {
+      enforce(data.todo).isNotEmpty();
+    });
+
+    test('todo', 'TODO cannot be empty', () => {
+        enforce(data.todo).isNotBlank();
+      });
+  });
+
 const TodoForm = () =>{
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+        resolver: vestResolver(validationSuite),
+    });
     const {setOpenModal,addTodo} = React.useContext(TodoContext);
 
+    const [formstate, setFormstate] = useState({});
+    const [, setUserNameLoading] = useState(false);
+
+    const handleChange = (currentField, value) => {
+      const nextState = { ...formstate, [currentField]: value };
+      const result = validationSuite(nextState, currentField);
+      setFormstate(nextState);
+  
+      if (currentField === "username") {
+        setUserNameLoading(true);
+      }
+  
+      result.done((res) => {
+        setUserNameLoading(false);
+      });
+    };
+  
+ 
 
     const onSubmit = data =>{
         
@@ -34,6 +72,12 @@ const TodoForm = () =>{
         };
 
 
+        const cn = classnames(validationSuite.get(), {
+            invalid: "error",
+            valid: "success",
+            warning: "warning"
+          });
+
     return(
         <div className={styles.formContainer} >
             <form onSubmit={handleSubmit(onSubmit)} className="form-floating text-center">
@@ -41,12 +85,17 @@ const TodoForm = () =>{
                     <h3>Escribe tu nuevo TODO</h3>
                 </div>
             <div className='row m-auto pl-4 pr-4'>
-                <textarea className="form-control"
+                <input 
+                className="form-control"
+                onChange={handleChange}
                 placeholder='Aqui tu nuevo ToDo'
-                {...register("todo",{ required: true }) }
-                ></textarea>
-                {!errors.todo && <span>Agrega la descripción de tu ToDo</span>}
-                {errors.todo && <span className='text-danger'>Este campo es requerido</span>}
+                {...register("todo",{ required: true, minLength:1 }) }
+                />
+                
+          <span className='text-danger small'> {validationSuite
+          .getErrors("todo")
+          .concat(validationSuite.getWarnings("todo"))}</span>
+                
                 </div>
             <div className='row mt-3 msb-3 d-flex flex-row align-items-center justify-content-center'>
                 <button onClick={()=>setOpenModal(false)}  className="btn btn-light m-4">Cancelar</button>
