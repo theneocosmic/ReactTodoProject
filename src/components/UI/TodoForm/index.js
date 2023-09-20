@@ -9,6 +9,7 @@ import { vestResolver } from '@hookform/resolvers/vest';
 // import { create, test, enforce } from 'vest';
 import { create, test, enforce, only, warn, include, skipWhen } from "vest";
 import classnames from "vest/classnames";
+import './TodoForm.css';
 
 const MySwal = withReactContent(Swal);
 
@@ -82,7 +83,7 @@ const TodoForm = () =>{
         <div className={styles.formContainer} >
             <form onSubmit={handleSubmit(onSubmit)} className="form-floating text-center">
                 <div className={styles.formTitle}>
-                    <h3>Escribe tu nuevo TODO</h3>
+                    <h3 className="header-new-todo">Escribe tu nuevo TODO</h3>
                 </div>
             <div className='row m-auto pl-4 pr-4'>
                 <input 
